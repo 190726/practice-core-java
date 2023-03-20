@@ -1,17 +1,16 @@
 package com.sk.practice.interfaces;
 
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /*
  * Set 은 중복요소를 허용하지 않는 Collection 이다. 
  */
 public class SetInterface {
 	
-	public static void main(String[] args) {
-		String[] strs = {"lee","kimm","lee","pak"};
-		Set<String> result = Arrays.stream(strs).collect(Collectors.toSet());
-		System.out.println(result);
+	/*Collection의 중복 없애기*/
+	public static <E> Set<E> removeDups(Collection<E> c){
+		return new LinkedHashSet<>(c); //HashSet은 삽입순서를 관리하지 않지만, LinkedHashSet은 삽입순서를 관리하여, 출력할때 삽입순서대로 출력된다.
 	}
 }
