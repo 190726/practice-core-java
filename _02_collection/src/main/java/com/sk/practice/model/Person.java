@@ -21,5 +21,4 @@ public class Person implements Comparable<Person>{
 			return this.name.compareTo(o.getName());
 		else return -1;
 	}
-	
 }

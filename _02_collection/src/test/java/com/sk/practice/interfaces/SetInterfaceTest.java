@@ -47,8 +47,7 @@ class SetInterfaceTest {
 	void _TreeSet을이용한_객체정렬() throws Exception {
 		
 		//불변리스트는 List의 sort 메서드 사용이 불가하다.
-		List<Person> persons = new ArrayList<>();
-		persons.addAll(persons());
+		List<Person> persons = new ArrayList<>(persons());
 //		persons.add(new Person(10, "홍길동"));
 //		persons.add(new Person(20, "이순신"));
 //		persons.add(new Person(14, "김구"));
