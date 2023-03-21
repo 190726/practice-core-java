@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -71,8 +72,13 @@ class SetInterfaceTest {
 		
 		//나이순, 이름순
 		//TreeSet 을 이용한 객체 정렬
-		Set<Person> sortSet = new TreeSet<>(persons);
+		Set<Person> sortSet = new TreeSet<>(persons());
 		System.out.println(sortSet);
+		
+		//Queue를 사용한 정렬
+		PriorityQueue<Person> queue = new PriorityQueue<>();
+		queue.addAll(persons());
+		System.out.println(queue);
 	}
 	
 	private static String[] stub() {
