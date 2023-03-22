@@ -18,7 +18,6 @@ public class ObjectOrderTest {
 	 * collection 정렬은 다양한 방법이 있지만, 중요한 것은, Comparable 인터페이스의 구현체이어야 한다는 것이다. 
 	 * 그렇지 않으면 Comparator 를 이용한다. 
 	 */
-	
 	public static void main(String[] args) {
 		List<Name> names = Arrays.asList(new Name("김기현"), new Name("강태우"), new Name("임지연"), new Name("박연진") );
 		List<NameComparable> namesComparable = Arrays.asList(new NameComparable("김기현"), new NameComparable("강태우"), new NameComparable("임지연"), new NameComparable("박연진") );
