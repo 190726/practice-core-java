@@ -1,6 +1,7 @@
 package com.sk.practice.model;
 
 import java.util.List;
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +10,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Person implements Comparable<Person>{
 	
+	private UUID id;
 	private int age;
 	private String name;
 	private Party party;
@@ -16,6 +18,12 @@ public class Person implements Comparable<Person>{
 	public Person(int age, String name) {
 		this.age = age;
 		this.name = name;
+	}
+	
+	public Person(int age, String name, Party party) {
+		this.age = age;
+		this.name = name;
+		this.party = party;
 	}
 	
 	/*
