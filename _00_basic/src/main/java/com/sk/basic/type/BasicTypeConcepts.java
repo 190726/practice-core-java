@@ -3,22 +3,57 @@ package com.sk.basic.type;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 
  * byte |  1byte | -128~127
  * char |  2byte | 0~65535
- * byte |  1byte | -128~127
- * byte |  1byte | -128~127
+ * int |  4byte | -2147483648 ~ 2147483648
+ * long |  8byte | 
  * 
  *
  */
 public class BasicTypeConcepts {
 	
 	public static void main(String[] args) throws UnsupportedEncodingException {
-		
+		writeToWayChar();
 		writeToWayBinary();
 		toUnicodeTest();
+	}
+	
+	public static void writeToWayChar() {
+		char c1 = 'A';
+		char c2 = 65;
+		char c3 = '\u0041';
+		System.out.println(c1);//A
+		System.out.println(c2);//A
+		System.out.println(c3);//A
+		
+		char c4 = '가';
+		char c5 = 44032;
+		char c6 = '\uac00';
+		System.out.println(c4);//가
+		System.out.println(c5);//가
+		System.out.println(c6);//가
+		
+		//2byte char 를 byte[2]로 변환한 후, String(UTF16으로 변환)
+		byte[] b = new byte[2];
+		
+		b[1] = (byte) c4;
+		//10101100 00000000 => 00000000 10101100
+		//10101100 0000000
+		b[0] = (byte)(c4 >> 8);
+		
+		System.out.println(Integer.toBinaryString(c4 >> 1));//이진수 각 자리를 오른쪽으로 1칸씩 밀면서 사라지는 자리는 삭제
+		System.out.println(Integer.toBinaryString(c4 >> 2));
+		System.out.println(Integer.toBinaryString(c4 >> 3));
+		System.out.println(Integer.toBinaryString(c4 >> 4));
+		System.out.println(Integer.toBinaryString(c4 << 1));
+		System.out.println(Integer.toBinaryString(c4 << 2));//이진수 각 자리를 오니쪽으로 밀면서 첫번째 자리를 0으로 채워나간다.
+		System.out.println(b[0] & 0xff);
+		System.out.println(b[1] & 0xff);
+		System.out.println("16진수 :" + new String(b, StandardCharsets.UTF_16));
 	}
 	
 	public static void writeToWayBinary() {
@@ -63,7 +98,7 @@ public class BasicTypeConcepts {
 		}
 		System.out.println();
 		
-		//한글 to 16진수 유니코드
+		//한글 to 16진수 유니코드(char 타입은 2byte이며, 유니코드도 2byte)
 		System.out.println(String.format("U+%04X", "가".codePointAt(0)));
 		System.out.println("\n-------------유니코드('가') to 한글-----------");
 		String unicode1 = "\uAC00";
