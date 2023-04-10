@@ -5,6 +5,7 @@ public class StringBuilderPerformance {
 	private static final int NUMBER = 1_000_000;
 
 	public static void main(String[] args) {
+		
 		//String 106초
 		userString();
 		//StringBuilder 8ms

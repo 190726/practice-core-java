@@ -3,6 +3,11 @@ package com.sk.goodcode;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
+/**
+ * 코드상에 제어 할수 없는 부분에 의존하는 부분이 있다면, 테스트가 어려워진다. 
+ * 제어할수 없는 부분을 분리할 수 있는 방법을 생각해보자.
+ *
+ */
 public class DependOnCurrentTime {
 	
 	//[[Step1]]
